@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instance Recommendation System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* Add some basic styles for the form */
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin: 10px 0 5px;
+        }
+        input, select {
+            padding: 10px;
+            margin-bottom: 15px; /* Add margin below inputs for spacing */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cloud Instance Recommendation</h1>
+        <form method="post">
+            <label for="cpu">Minimum vCPUs:</label>
+            <input type="number" id="cpu" name="cpu" required>
+            
+            <label for="memory">Minimum Memory (GB):</label>
+            <input type="number" id="memory" name="memory" step="0.1" required>
+            
+            <label for="region">Region:</label>
+            <select id="region" name="region" required>
+                <option value="all">All regions</option>
+                <option value="us-east-1">US East 1</option>
+                <option value="us-west-1">US West 1</option>
+                <option value="eu-west-1">EU West 1</option>
+                <option value="eastus">EastUS</option>
+                <option value="westus">WestUS</option>
+                <option value="us-central1">US Central 1</option>
+                <option value="us-south">US South 1</option>
+                <option value="us-ashburn-1">US Ashburn 1</option>
+                <option value="us-phoenix-1">US Phoenix 1</option>
+                <option value="eu-frankfurt-1">EU Frankfurt 1</option>
+                <!-- Add other regions as needed -->
+            </select>
+            
+            <button type="submit">Get Recommendations</button>
+        </form>
+    </div>
+</body>
+</html>

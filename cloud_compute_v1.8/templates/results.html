@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendations Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Recommendation Results</h1>
+        {% if message %}
+            <p>{{ message }}</p>
+        {% else %}
+            <h2>WSM Recommendations based on Price</h2>
+            <div>{{ wsm_results|safe }}</div>
+            <h2>AHP Recommendations based on Performance</h2>
+            <div>{{ ahp_results|safe }}</div>
+            <h2>TOPSIS Recommendations based on Security</h2>
+            <div>{{ topsis_results|safe }}</div>
+        {% endif %}
+        <a href="/">Back</a>
+    </div>
+</body>
+</html>
